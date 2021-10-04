@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        #blob{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <main id="blob">
+        <img id="myImg" src="./src/assets/cat.jpg" alt="cat">
+    </main>
+
+    <script src="./src/scripts/simplex-noise.ts"></script>
+    <script src="./src/scripts/curve.min.js"></script>
+    <script src="./src/main.ts"></script>
+    <script>
+        
+let white = "#FFFFFF"
+
+const myImg = document.getElementById("myImg")
+
+// myImg.style.position = "absolute"
+myImg.style.display = "none"
+
+myImg.onload = ()=>{
+    // console.log("carrego")
+}
+console.log(myImg)
+let blob = createBlobAnimation("blob", 5, white)
+
+requestAnimationFrame(blob.init)
+
+blob.changeCurrentColor(`rgba(${counter},0,0,1)`)
+
+
+    </script>
+</body>
+</html>
