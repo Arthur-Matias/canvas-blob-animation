@@ -27,32 +27,19 @@
 <body>
 
     <main id="blob">
-        <img id="myImg" src="./src/assets/cat.jpg" alt="cat">
+        <!-- <img id="myImg" src="./src/assets/cat.jpg" alt="cat"> -->
     </main>
 
-    <script src="./src/scripts/simplex-noise.ts"></script>
-    <script src="./src/scripts/curve.min.js"></script>
-    <script src="./src/main.ts"></script>
+    <script type="text/javascript" src="./bundle/scripts/simplex-noise.js"></script>
+    <script src="./bundle/scripts/curve.min.js"></script>
+    <script  type="text/javascript" src="./bundle/main.js"></script>
     <script>
         
-let white = "#FFFFFF"
+        let white = "#FFFFFF"
 
-const myImg = document.getElementById("myImg")
+        let blob = createBlobAnimation("blob", 5, white)
 
-// myImg.style.position = "absolute"
-myImg.style.display = "none"
-
-myImg.onload = ()=>{
-    // console.log("carrego")
-}
-console.log(myImg)
-let blob = createBlobAnimation("blob", 5, white)
-
-requestAnimationFrame(blob.init)
-
-blob.changeCurrentColor(`rgba(${counter},0,0,1)`)
-
-
+        requestAnimationFrame(blob.init)
     </script>
 </body>
 </html>

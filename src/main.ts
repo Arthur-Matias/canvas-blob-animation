@@ -7,8 +7,7 @@ enum ImageDraw{
     MidPoint = "mid"
 }
 
-
-function createBlobAnimation(_target: string, _numOfPoints:number, _color:string, _noiseStep: number = 0.005, _bgImage: HTMLImageElement|null = null, _imageDrawType: ImageDraw = ImageDraw.MidPoint) {
+function createBlobAnimation(_target: string, _numOfPoints:number, _color:string, _noiseStep: number = 0.0005, _bgImage: HTMLImageElement|null = null, _imageDrawType: ImageDraw = ImageDraw.MidPoint) {
 
     const target: HTMLElement = document.getElementById(_target) as HTMLElement;
 
@@ -122,10 +121,10 @@ function createBlobAnimation(_target: string, _numOfPoints:number, _color:string
             for (let i = 0; i < points.length; i++) {
                 const point = points[i];
 
-                const nx = noise(point.noiseOffsetX, point.noiseOffsetY)
+                const nX = noise(point.noiseOffsetX, point.noiseOffsetY)
                 const nY = noise(point.noiseOffsetX, point.noiseOffsetY)
 
-                const x = map(nx, -1, 1, point.originX - range, point.originX + range);
+                const x = map(nX, -1, 1, point.originX - range, point.originX + range);
                 const y = map(nY, -1, 1, point.originY - range, point.originY + range);
 
                 point.x = x
@@ -169,10 +168,10 @@ function createBlobAnimation(_target: string, _numOfPoints:number, _color:string
         }
 
         canvas.onmouseenter = e=>{
-            _noiseStep = _noiseStep*1.5
+            _noiseStep = _noiseStep*2
         }
         canvas.onmouseleave = e=>{
-            _noiseStep = _noiseStep/1.5
+            _noiseStep = _noiseStep/2
         }
         return {
             render
